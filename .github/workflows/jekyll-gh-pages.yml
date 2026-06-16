@@ -28,12 +28,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - run: npm install -g bundler
+      - run: npm run dev
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
+          source: ./source
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
